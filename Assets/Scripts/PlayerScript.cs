@@ -58,14 +58,11 @@ public class PlayerScript : MonoBehaviour
 		}
 	}
 
-	void Kill()
+	public void Kill()
 	{
 		Opponent.AddScore();
-
 		transform.position = startPosition;
 		transform.rotation = Quaternion.identity;
-		rigidbody2d.velocity = Vector3.zero;
-		rigidbody2d.angularVelocity = 0.0f;
 	}
 
 	Vector2 InputToVelocity()
