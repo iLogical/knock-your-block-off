@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -18,6 +19,8 @@ public class PlayerScript : MonoBehaviour
 	string jumpInputBind;
 	string moveInputBind;
 	int score;
+	ParticleSystem particles;
+	SpriteRenderer spriteRenderer;
 
 	public void AddScore()
 	{
@@ -27,13 +30,15 @@ public class PlayerScript : MonoBehaviour
 
 	void Start()
 	{
+		spriteRenderer = GetComponent<SpriteRenderer>();
 		rigidbody2d = GetComponent<Rigidbody2D>();
+		particles = GetComponent<ParticleSystem>();
 		groundCheck = transform.Find("groundCheck").gameObject.transform;
 		startPosition = transform.position;
 		jumpInputBind = string.Format("P{0}_Jump", Player);
 		moveInputBind = string.Format("P{0}_Horizontal", Player);
 
-		ScoreText.text = score.ToString(); ;
+		ScoreText.text = score.ToString();
 	}
 
 	void Update()
@@ -58,11 +63,20 @@ public class PlayerScript : MonoBehaviour
 		}
 	}
 
-	public void Kill()
+	void Kill()
 	{
+		particles.Play();
+		spriteRenderer.enabled = false;
 		Opponent.AddScore();
+		StartCoroutine(ExecuteAfterTime(particles.main.duration + 1.0f));
+	}
+
+	IEnumerator ExecuteAfterTime(float time)
+	{
+		yield return new WaitForSeconds(time);
 		transform.position = startPosition;
 		transform.rotation = Quaternion.identity;
+		spriteRenderer.enabled = true;
 	}
 
 	Vector2 InputToVelocity()
