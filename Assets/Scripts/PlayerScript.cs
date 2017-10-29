@@ -1,10 +1,10 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
-public class PlayerScript : MonoBehaviour
+[RequireComponent(typeof(SpriteRenderer))]
+public class PlayerScript : MonoBehaviour, IKillable
 {
 	public float Speed = 5.0f;
 	public float JumpHeight = 2.5f;
@@ -19,7 +19,6 @@ public class PlayerScript : MonoBehaviour
 	string jumpInputBind;
 	string moveInputBind;
 	int score;
-	ParticleSystem particles;
 	SpriteRenderer spriteRenderer;
 
 	public void AddScore()
@@ -32,7 +31,6 @@ public class PlayerScript : MonoBehaviour
 	{
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		rigidbody2d = GetComponent<Rigidbody2D>();
-		particles = GetComponent<ParticleSystem>();
 		groundCheck = transform.Find("groundCheck").gameObject.transform;
 		startPosition = transform.position;
 		jumpInputBind = string.Format("P{0}_Jump", Player);
@@ -55,30 +53,6 @@ public class PlayerScript : MonoBehaviour
 		Move(velocity);
 	}
 
-	void OnTriggerEnter2D(Collider2D collision)
-	{
-		if (collision.tag == "Killbox")
-		{
-			Kill();
-		}
-	}
-
-	void Kill()
-	{
-		particles.Play();
-		spriteRenderer.enabled = false;
-		Opponent.AddScore();
-		StartCoroutine(ExecuteAfterTime(particles.main.duration + 1.0f));
-	}
-
-	IEnumerator ExecuteAfterTime(float time)
-	{
-		yield return new WaitForSeconds(time);
-		transform.position = startPosition;
-		transform.rotation = Quaternion.identity;
-		spriteRenderer.enabled = true;
-	}
-
 	Vector2 InputToVelocity()
 	{
 		var velocity = Vector2.zero;
@@ -99,5 +73,12 @@ public class PlayerScript : MonoBehaviour
 	void Jump()
 	{
 		rigidbody2d.AddForce(new Vector2(0, JumpHeight), ForceMode2D.Impulse);
+	}
+
+	public void Kill()
+	{
+		transform.position = startPosition;
+		transform.rotation = Quaternion.identity;
+		spriteRenderer.enabled = true;
 	}
 }

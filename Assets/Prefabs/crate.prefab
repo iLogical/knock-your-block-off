@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114085045129771032}
   - component: {fileID: 198471850978711272}
   - component: {fileID: 199520155373101522}
+  - component: {fileID: 114566647799869336}
   m_Layer: 0
   m_Name: crate
   m_TagString: Player
@@ -99,6 +100,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72ee621499982744993af53592e2203d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114566647799869336
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1177717213062758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44d5d4d006cdc6f43818ae3f74c19c73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!198 &198471850978711272
