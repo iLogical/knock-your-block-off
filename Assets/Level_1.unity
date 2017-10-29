@@ -191,6 +191,21 @@ Prefab:
       propertyPath: Opponent
       value: 
       objectReference: {fileID: 284686483}
+    - target: {fileID: 198725883501234958, guid: bd9ea05b0a70e3344a039b12d5247b16,
+        type: 2}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198725883501234958, guid: bd9ea05b0a70e3344a039b12d5247b16,
+        type: 2}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198725883501234958, guid: bd9ea05b0a70e3344a039b12d5247b16,
+        type: 2}
+      propertyPath: randomSeed
+      value: 1781267283
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bd9ea05b0a70e3344a039b12d5247b16, type: 2}
   m_IsPrefabParent: 0
@@ -707,7 +722,7 @@ Prefab:
     - target: {fileID: 212768408444726318, guid: bd9ea05b0a70e3344a039b12d5247b16,
         type: 2}
       propertyPath: m_Color.g
-      value: 0.13103437
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 212768408444726318, guid: bd9ea05b0a70e3344a039b12d5247b16,
         type: 2}
@@ -724,6 +739,21 @@ Prefab:
       propertyPath: Opponent
       value: 
       objectReference: {fileID: 546131023}
+    - target: {fileID: 198725883501234958, guid: bd9ea05b0a70e3344a039b12d5247b16,
+        type: 2}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198725883501234958, guid: bd9ea05b0a70e3344a039b12d5247b16,
+        type: 2}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198725883501234958, guid: bd9ea05b0a70e3344a039b12d5247b16,
+        type: 2}
+      propertyPath: randomSeed
+      value: 1781267283
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bd9ea05b0a70e3344a039b12d5247b16, type: 2}
   m_IsPrefabParent: 0
@@ -855,7 +885,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1506537812}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -7.5, z: 1}
+  m_LocalPosition: {x: 0, y: -4.5, z: 1}
   m_LocalScale: {x: 64, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
